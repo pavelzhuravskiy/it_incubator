@@ -1,0 +1,24 @@
+01. Yarn initialization [ yarn init --yes ]
+02. Installing Express [ yarn add express ]
+03. Create index.js in < Project Folder >/src
+04. Paste in index.js Express Getting Started code
+    < https://expressjs.com/en/starter/hello-world.html > or Google it
+05. Testing Express (launching Node) [ node index.js ]
+06. After successful launching test in browser < http://localhost:3000/ >
+07. Installing nodemon [ yarn add nodemon --dev ]
+    --dev flag is for development dependency in package.json
+08. Launching nodemon [ yarn nodemon index.js ]
+09. Install TypeScript [ yarn add typescript ts-node @types/node @types/express --dev ]
+10. Rename index.js --> index.ts
+11. TypeScript initialization [ yarn tsc --init ]
+12. Replace < const express... > row to < import express, {Request, Response} from "express" >
+13. Replace < app.get('/', (req, res)... > row to < app.get('/', (req: Request, res: Response)... >
+14. In tsconfig.json find "rootdir", uncomment, set to "./src"
+15. In tsconfig.json find "outDir", uncomment, set to "./dist"
+16. Install < body-parser > package from yarn (???)
+17. Aliases for nodemon and TypeScript compiler. In package.json, before "dependencies" create:
+    "scripts": {
+        "watch": "tsc -w",
+        "dev": "nodemon --inspect dist/index.js"
+      }
+    Running commands through aliases: [ yarn watch ], [ yarn dev ]
