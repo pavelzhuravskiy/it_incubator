@@ -3,7 +3,7 @@
 03. Create index.js in < Project Folder >/src
 04. Paste in index.js Express Getting Started code
     < https://expressjs.com/en/starter/hello-world.html > or Google it
-05. Testing Express (launching Node) [ node index.js ]
+05. Testing Express (launching Node) [ node src/index.js ]
 06. After successful launching test in browser < http://localhost:3000/ >
 07. Installing nodemon [ yarn add nodemon --dev ]
     --dev flag is for development dependency in package.json
