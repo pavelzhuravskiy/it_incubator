@@ -7,18 +7,40 @@
 06. After successful launching test in browser < http://localhost:3000/ >
 07. Installing nodemon [ yarn add nodemon --dev ]
     --dev flag is for development dependency in package.json
-08. Launching nodemon [ yarn nodemon index.js ]
+08. Launching nodemon [ yarn nodemon src/index.js ]
 09. Install TypeScript [ yarn add typescript ts-node @types/node @types/express --dev ]
 10. Rename index.js --> index.ts
 11. TypeScript initialization [ yarn tsc --init ]
 12. Replace < const express... > row to < import express, {Request, Response} from "express" >
 13. Replace < app.get('/', (req, res)... > row to < app.get('/', (req: Request, res: Response)... >
-14. In tsconfig.json find "rootdir", uncomment, set to "./src"
-15. In tsconfig.json find "outDir", uncomment, set to "./dist"
-16. Install < body-parser > package from yarn (???)
-17. Aliases for nodemon and TypeScript compiler. In package.json, before "dependencies" create:
+14. tsconfig.json configuration:
+
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "strict": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts"]
+}
+
+15. Add < app.use(express.json()) > to index.ts (to parse requests bodies)
+16. Aliases for nodemon and TypeScript compiler. In package.json, before "dependencies" create:
     "scripts": {
         "watch": "tsc -w",
         "dev": "nodemon --inspect dist/index.js"
       }
     Running commands through aliases: [ yarn watch ], [ yarn dev ]
+
+17. Add to .gitignore:
+    /.idea/
+    /node_modules/
+    /dist/
+    /.gitignore

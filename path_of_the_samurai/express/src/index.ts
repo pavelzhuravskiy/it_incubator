@@ -59,9 +59,9 @@ const db: { courses: CourseType[] } = {
 const getCourseViewModel = (dbCourse: CourseType): CourseViewModel => {
   return {
     id: dbCourse.id,
-    title: dbCourse.title
-  }
-}
+    title: dbCourse.title,
+  };
+};
 
 app.get(
   "/courses",
@@ -75,9 +75,7 @@ app.get(
         (c) => c.title.indexOf(req.query.title) > -1
       );
     }
-    res.json(
-      foundCourses.map(getCourseViewModel)
-    );
+    res.json(foundCourses.map(getCourseViewModel));
   }
 );
 app.get(
@@ -108,8 +106,9 @@ app.post(
       studentsCount: 0,
     };
     db.courses.push(createdCourse);
-    res.status(HTTP_STATUSES.CREATED_201)
-        .json(getCourseViewModel(createdCourse));
+    res
+      .status(HTTP_STATUSES.CREATED_201)
+      .json(getCourseViewModel(createdCourse));
   }
 );
 app.delete(
