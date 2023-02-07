@@ -41,6 +41,6 @@
 
 17. Add to .gitignore:
     /.idea/
-    /node_modules/
     /dist/
+    /node_modules/
     /.gitignore
