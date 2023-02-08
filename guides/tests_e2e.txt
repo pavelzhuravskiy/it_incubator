@@ -1,0 +1,8 @@
+1. Install supertest and types [ yarn add jest ts-jest @types/jest supertest @types/supertest  ]
+2. Create Jest configuration file [ yarn ts-jest config:init ]
+3. In package.json create script:
+	"test": "jest"
+4. In project root folder create directory and subdirectory: < __tests__ > --> < e2e >
+5. In e2e directory create file < <name>.api.test.ts >
+6. Export app to do it available for import. In index.ts replace  < const app = express(); > --> < export const app = express(); >
+7. Example tests can be found in < path_of_the_samurai > folder.
